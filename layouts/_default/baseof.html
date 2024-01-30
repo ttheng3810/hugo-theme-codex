@@ -12,6 +12,12 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <!-- math params -->
+  {{ if .Param "math" }}
+  {{ partialCached "math.html" . }}
+  {{ end }}
+
+
   <!-- Twitter -->
   {{ if isset .Site.Params "twitter" }}
   <meta name="twitter:card" content="summary" />
