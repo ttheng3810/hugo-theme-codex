@@ -36,12 +36,12 @@
   {{ end }}
   
   {{ range .AlternativeOutputFormats }} 
-  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }} <!-- newer Hugo version: .MediaType.FirstSuffix.Suffix -->
+  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffixes .Permalink $.Site.Title | safeHTML }} <!-- newer Hugo version: .MediaType.FirstSuffix.Suffix -->
   {{ end }} 
   {{ block "links" . }} {{ end }}
   {{ partial "seo-schema.html" .}}
 
-  {{- if not .Site.IsServer -}}
+  {{- if not hugo.IsServer -}}
       {{ template "_internal/google_analytics.html" . }}
   {{- end -}}
 </head>
